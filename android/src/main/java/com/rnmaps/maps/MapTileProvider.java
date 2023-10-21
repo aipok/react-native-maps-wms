@@ -104,7 +104,7 @@ public class MapTileProvider implements TileProvider {
 			}
 			return url;
 		} else {
-			if (MapUrlTile.this.flipY) {
+			if (MapTileProvider.this.flipY) {
 				y = (1 << zoom) - y - 1;
 			}
 
@@ -112,14 +112,14 @@ public class MapTileProvider implements TileProvider {
 					.replace("{x}", Integer.toString(x))
 					.replace("{y}", Integer.toString(y))
 					.replace("{z}", Integer.toString(zoom));
-			URL url = null;
+			URL url;
 
-			if (MapUrlTile.this.maximumZ > 0 && zoom > maximumZ) {
-				return url;
+			if (MapTileProvider.this.maximumZ > 0 && zoom > MapTileProvider.this.maximumZ) {
+				return null;
 			}
 
-			if (MapUrlTile.this.minimumZ > 0 && zoom < minimumZ) {
-				return url;
+			if (MapTileProvider.this.minimumZ > 0 && zoom < MapTileProvider.this.minimumZ) {
+				return null;
 			}
 
 			try {
