@@ -104,7 +104,7 @@ public class MapTileProvider implements TileProvider {
 			}
 			return url;
 		} else {
-			if (AirMapUrlTile.this.flipY) {
+			if (MapUrlTile.this.flipY) {
 				y = (1 << zoom) - y - 1;
 			}
 
@@ -114,11 +114,11 @@ public class MapTileProvider implements TileProvider {
 					.replace("{z}", Integer.toString(zoom));
 			URL url = null;
 
-			if (AirMapUrlTile.this.maximumZ > 0 && zoom > maximumZ) {
+			if (MapUrlTile.this.maximumZ > 0 && zoom > maximumZ) {
 				return url;
 			}
 
-			if (AirMapUrlTile.this.minimumZ > 0 && zoom < minimumZ) {
+			if (MapUrlTile.this.minimumZ > 0 && zoom < minimumZ) {
 				return url;
 			}
 
