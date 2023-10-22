@@ -99,13 +99,13 @@
     return [NSURL URLWithString:url];
 }
 
--(double) convertY:(int) y Zoom:(int) zoom  {
+- (double) convertY:(int) y Zoom:(int) zoom  {
     double scale = pow(2.0, zoom);
     double n = M_PI - (2.0 * M_PI * y ) / scale;
     return  atan(sinh(n)) * 180 / M_PI;
 }
 
-- (NSString *) getDataFrom:(NSString *)url{
++ (NSString *) getDataFrom:(NSString *)url{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setHTTPMethod:@"GET"];
     [request setURL:[NSURL URLWithString:url]];
